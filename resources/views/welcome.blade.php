@@ -61,9 +61,13 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#facts" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Facts</span></a></li>
+          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Skills</span></a></li>
+
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="{{ route('login') }}" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Login</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -73,7 +77,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Matt Earl M. Pino</h1>
-      <p>I'm <span class="typed" data-typed-items="Programmer, Graphic Designer"></span></p>
+      <p>I'm <span class="typed" data-typed-items="Web Developer,   Graphic Designer"></span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -88,16 +92,20 @@
           Greetings! My name is Matt Earl Pino, and I'm from Barangay Bantigue Hilongos, Leyte. I am a third-year student at MLG College of Learning, where I am pursuing a Bachelor of Science in Information Technology (BSIT), immersed in the ever-evolving world of technology. I have a strong desire to innovate and am fascinated by the constantly changing field of information technology. I am excited to learn more about networking and programming, among other things. Beyond the classroom, I enjoy exploring a variety of extracurricular interests and activities that enhance my education in general. Let's embrace the process of learning and development, one code at a time!
 
           I am driven by a wide range of interests and passions outside the walls of textbooks and lectures.
-        <div class="row">
+        <br>
+        <br>
+        <br>
+          <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
             <img src="assets/img/profile.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
         
-            <p class="fst-italic">
+            <!-- <p class="fst-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.
-            </p>
+            </p> -->
+            <br></br>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
@@ -117,8 +125,8 @@
               </div>
             </div>
             <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+                Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
+                Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
             </p>
           </div>
         </div>
@@ -220,9 +228,9 @@
             </div>
 
             <div class="progress">
-              <span class="skill">Laravel <i class="val">80%</i></span>
+              <span class="skill">Laravel <i class="val">50%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
@@ -245,7 +253,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Resume</h2>
+          <h2>Educational Attainment</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
@@ -277,7 +285,7 @@
             </div>
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
+            <h3 class="resume-title">Experience</h3>
             <div class="resume-item">
               <h4>Senior graphic design specialist</h4>
               <h5>2019 - Present</h5>
