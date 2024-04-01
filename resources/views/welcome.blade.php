@@ -47,9 +47,11 @@
 
       <div class="profile">
         <img src="assets/img/qw.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Matt Earl Pino</a></h1>
+        @foreach($user as $name)
+        <h1 class="text-light"><a href="index.html">{{ ucwords($name->name) }}</a></h1>
+     
         <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="https://github.com/mattearlpinoodev" class="github"><i class="bx bxl-github"></i></a>
           <a href="https://www.facebook.com/mattearl.pino" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="https://www.instagram.com/matte_arl/" class="instagram"><i class="bx bxl-instagram"></i></a>
           <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
@@ -61,11 +63,10 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#facts" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Facts</span></a></li>
-          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Skills</span></a></li>
-
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-brain"></i> <span>Skill</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Educational Attainment</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-cog"></i> <span>Blogs</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
           <li><a href="{{ route('login') }}" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Login</span></a></li>
         </ul>
@@ -76,11 +77,11 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>Matt Earl M. Pino</h1>
-      <p>I'm <span class="typed" data-typed-items="Web Developer,   Graphic Designer"></span></p>
+      <h1>{{$name->name}}</h1>
+      <p>Your Future <span class="typed" data-typed-items="Web Developer,   Graphic Designer"></span></p>
     </div>
   </section><!-- End Hero -->
-
+  @endforeach
   <main id="main">
 
     <!-- ======= About Section ======= -->
@@ -89,7 +90,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          Greetings! My name is Matt Earl Pino, and I'm from Barangay Bantigue Hilongos, Leyte. I am a third-year student at MLG College of Learning, where I am pursuing a Bachelor of Science in Information Technology (BSIT), immersed in the ever-evolving world of technology. I have a strong desire to innovate and am fascinated by the constantly changing field of information technology. I am excited to learn more about networking and programming, among other things. Beyond the classroom, I enjoy exploring a variety of extracurricular interests and activities that enhance my education in general. Let's embrace the process of learning and development, one code at a time!
+          Greetings! My name is {{$name->name}}, and I'm from Barangay Bantigue Hilongos, Leyte. I am a third-year student at MLG College of Learning, where I am pursuing a Bachelor of Science in Information Technology (BSIT), immersed in the ever-evolving world of technology. I have a strong desire to innovate and am fascinated by the constantly changing field of information technology. I am excited to learn more about networking and programming, among other things. Beyond the classroom, I enjoy exploring a variety of extracurricular interests and activities that enhance my education in general. Let's embrace the process of learning and development, one code at a time!
 
           I am driven by a wide range of interests and passions outside the walls of textbooks and lectures.
         <br>
@@ -109,24 +110,28 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>6 May 2002</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.laptopsales.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+639356086388</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Hilongos, Leyte Philippines</span></li>
+                  @foreach($about as $abouts)
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{$abouts->birthday}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Religion:</strong> <span>{{$abouts->religion}}</span></li>
+                  
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{$abouts->degree}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{$abouts->city}}</span></li>
+                  @endforeach
+                </ul>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Science Information Technology</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>mattearlpinoo@gmail.com</span></li>
-                  
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{$abouts->age}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{$abouts->phone_number}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{$abouts->email}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Gender:</strong> <span>{{$abouts->gender}}</span></li>
                 </ul>
               </div>
             </div>
+            <!-- <li><i class="bi bi-chevron-right"></i> <strong></strong> <span>Description</span></li>
             <p>
-                Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-                Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+            A dynamic and evolving document that should be regularly updated to reflect the creator's latest work, achievements, and skills. It's essential to keep the portfolio current and relevant by adding new projects, updating descriptions, replacing outdated materials, and removing irrelevant content. -->
             </p>
           </div>
         </div>
@@ -134,85 +139,75 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Facts</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Portfolio</h2>
+          <h1>Works</h1>
         </div>
 
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
+        <!-- <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
           </div>
+        </div> -->
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+            <img src="assets/img/land.gif" class="img-fluid" alt="">
+            <div class="portfolio-info">
+                <h4 class="text-center">Comics Inventory System</h4>
             </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+            <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-1.jpgs" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="https://comicsinventory.webactivities.online" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-
         </div>
+    </div>
+</div>
 
-      </div>
-    <!-- </section>End Facts Section --> -->
+  <!-- End Portfolio Section -->
 
     <!-- ======= Skills Section ======= -->
+    
     <section id="skills" class="skills section-bg">
       <div class="container">
-
+       
         <div class="section-title">
           <h2>Skills</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
-
+        @foreach($skill as $skills) 
         <div class="row skills-content">
 
           <div class="col-lg-6" data-aos="fade-up">
-
+          
             <div class="progress">
-              <span class="skill">HTML <i class="val">50%</i></span>
+              <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <!-- <div class="progress">
+              <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->percentage}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">CSS <i class="val">50%</i></span>
+              <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">50%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
@@ -221,31 +216,32 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 
             <div class="progress">
-              <span class="skill">PHP <i class="val">50%</i></span>
+              <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->percentage}}</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">Laravel <i class="val">50%</i></span>
+              <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}"</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">Photoshop <i class="val">50%</i></span>
+              <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->percentage}}</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-            </div>
-
-          </div>
+            </div> -->
+<!-- 
+          </div> -->
 
         </div>
 
       </div>
+      @endforeach
     <!-- </section>End Skills Section -->
 
     <!-- ======= Resume Section ======= -->
@@ -261,7 +257,7 @@
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title">Sumary</h3>
             <div class="resume-item pb-0">
-              <h4>Matt Earl Pino</h4>
+              <h4>{{$name->name}}</h4>
               <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
               <ul>
                 <li>Hilongos,Leyte Philippines</li>
@@ -272,15 +268,15 @@
 
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
-              <h4>Computer Programming</h4>
-              <h5>2023 - 2024</h5>
-              <p><em>MLG Colloge of Learning INC.</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+              <h4>Primary School</h4>
+              <h5>2014 - 2015</h5>
+              <p><em>Hilongos South Central School</em></p>
+              <p>The school culture is basically the way of life at the school. It refers to how the students and staff at the school choose to behave. The culture also refers to how they make you feel in the school. </p>
             </div>
             <div class="resume-item">
-              <h4>Bachelor of Science Information Technology &amp; Graphic Design</h4>
+              <h4>Secondary School &amp; CSS</h4>
               <h5>2020 - 2021</h5>
-              <p><em>MLG Colloge of Learning INC.</em></p>
+              <p><em>Hilongos National Vocational School</em></p>
               <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
             </div>
           </div>
@@ -314,8 +310,7 @@
       </div>
     </section><!-- End Resume Section -->
 
-    <!-- ======= Portfolio Section ======= -->
-  <!-- End Portfolio Section -->
+   
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -360,7 +355,7 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    <!-- </section>End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->
  
