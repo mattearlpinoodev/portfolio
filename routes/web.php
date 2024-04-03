@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\aboutController;
 use App\Http\Controllers\skillController;
+use App\Http\Controllers\educational_attainmentController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\UserController;
+use App\Models\Educational_attainment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,4 +30,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('users', UserController::class);
 Route::resource('abouts', aboutController::class);
 Route::resource('skills', skillController::class);
+Route::resource('educational_attainments', educational_attainmentController::class);
 Route::resource('/', FrontEndController::class);

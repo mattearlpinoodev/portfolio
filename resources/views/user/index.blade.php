@@ -16,7 +16,7 @@
                 <h2>Users Table</h2>
             </div>
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Create Users</a>
+                <!-- <a class="btn btn-success" href="{{ route('users.create') }}"> Create Users</a> -->
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
             <td>{{ $user->email }}</td>
             <td>
                 <form action="{{ route('users.destroy',$user->id) }}" method="Post">
-    
+                <a class="btn btn-success" href="{{ route('users.create') }}"> Create</a>
                     <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
    
                     @csrf

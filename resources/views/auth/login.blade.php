@@ -20,7 +20,7 @@
             <div class="card pt-4">
                 <div class="card-body">
                     <div class="text-center mb-5">
-                        <img src="dashboard/assets/images/favicon.svg" height="48" class='mb-4'>
+                        <img src="dashboard/assets/images/logo.png" height="150" class='mb-4'>
                         <h3>Sign In</h3>
                         <p>Please sign in to Dashboard</p>
                     </div>
@@ -69,7 +69,7 @@
                             </div> -->
                         </div>
                         <div class="clearfix">
-                            <button class="btn btn-primary float-right">Submit</button>
+                            <button class="btn btn-primary float-right">Login</button>
                         </div>
                     </form>
                     <!-- <div class="divider">

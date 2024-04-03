@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="../dashboard/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../dashboard/assets/css/app.css">
-    <link rel="shortcut icon" href="../dashboard/assets/images/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../dashboard/assets/images/logo.png " type="image/x-icon">
 </head>
 <body>
     <div id="app">
@@ -232,12 +232,19 @@
                     </a>
                     
                 </li>
+                <li class="sidebar-item  ">
+                <a href="{{ route('educational_attainments.index') }}" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i> 
+                        <span>Educational Attainment</span>
+                    </a>
+                    
+                </li>
                   
             
             
             
                 <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                <a href="{{ route('educational_attainments.index') }}" class='sidebar-link'>
                         <i data-feather="trending-up" width="20"></i> 
                         <span>Charts</span>
                     </a>

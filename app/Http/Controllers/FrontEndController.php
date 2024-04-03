@@ -18,7 +18,9 @@ class FrontEndController extends Controller
         $about = DB::table('abouts')->get();
 
         $skill = DB::table('skills')->get();
-         return view('welcome', compact('skill','about', 'user'));
+
+        $educational_attainment = DB::table('educational_attainments')->get();
+         return view('welcome', compact('skill', 'educational_attainment' ,'about', 'user'));
     }
 
     /**

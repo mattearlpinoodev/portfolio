@@ -13,10 +13,10 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>About Table</h2>
+                <h2>Skills Table</h2>
             </div>
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('skills.create') }}"> Create About Yourself</a>
+                <a class="btn btn-success" href="{{ route('skills.create') }}"> Create Skills</a>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
             <td>{{ $skill->percentage }}</td>
             <td>
                 <form action="{{ route('skills.destroy',$skill->id) }}" method="Post">
-    
+                <!-- <a class="btn btn-success" href="{{ route('skills.create') }}"> Create</a> -->
                     <a class="btn btn-primary" href="{{ route('skills.edit',$skill->id) }}">Update</a>
    
                     @csrf

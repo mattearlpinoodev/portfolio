@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>About</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Include your custom CSS file -->
 </head>
 <body>
 
 <div class="container mt-2">
 
-<div class="row">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>About Table</h2>
@@ -20,14 +21,14 @@
             </div>
         </div>
     </div>
-   
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
-   
-    <table class="table table-bordered">
+
+    <table class="table table-bordered custom-table">
         <tr>
             <th>#</th>
             <th>Birthday</th>
@@ -38,7 +39,7 @@
             <th>Phone Number</th>
             <th>Email</th>
             <th>Gender</th>
-            <th width="280px">Action</th>
+            <th>Action</th>
         </tr>
         @foreach ($abouts as $about)
         <tr>
@@ -53,12 +54,12 @@
             <td>{{ $about->gender }}</td>
             <td>
                 <form action="{{ route('abouts.destroy',$about->id) }}" method="Post">
-    
+
                     <a class="btn btn-primary" href="{{ route('abouts.edit',$about->id) }}">Edit</a>
-   
+
                     @csrf
                     @method('DELETE')
-      
+
                     <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
                 </form>
             </td>
