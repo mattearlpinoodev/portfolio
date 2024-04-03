@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('educational_attainments', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->text('description');
-            $table->string('grade_level');
-            $table->string('year_graduate');
-            $table->string('name_school');
+            $table->string('title');
+            $table->string('image');
+            $table->string('content');
             $table->timestamps();
 
         });
-
     }
 
     /**

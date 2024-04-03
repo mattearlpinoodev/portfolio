@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('educational_attainments', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->id();
+            $table->string('work_experience');
+            $table->string('date_hired');
+            $table->string('address');
             $table->text('description');
-            $table->string('grade_level');
-            $table->string('year_graduate');
-            $table->string('name_school');
             $table->timestamps();
 
         });
-
     }
 
     /**

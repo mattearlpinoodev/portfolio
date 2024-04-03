@@ -12,7 +12,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header text-center">
-                    <h2>Edit Company</h2>
+                    <h2>Edit About</h2>
                 </div>
                 <div class="card-body">
                     @if(session('status'))
@@ -23,6 +23,14 @@
                     <form action="{{ route('abouts.update', $about->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" value="{{ $about->description }}" class="form-control" placeholder="Description">
+                            @error('description')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
 
                         <div class="form-group">
                             <label for="birthday">Birthday:</label>

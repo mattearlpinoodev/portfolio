@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Users</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.app')
 
+@section('content')
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-lg-6">
@@ -26,7 +20,7 @@
                             <label for="role">Role</label>
                             <select name="role" id="role" class="form-control">
                                 <option value="spectator">Spectator</option>
-                                <!-- You can add more options here -->
+                               
                             </select>
                             @error('role')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -63,6 +57,4 @@
         </div>
     </div>
 </div>
-
-</body>
-</html>
+@endsection

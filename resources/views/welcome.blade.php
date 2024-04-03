@@ -85,14 +85,14 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
+    
     <section id="about" class="about">
       <div class="container">
 
         <div class="section-title">
           <h2>About</h2>
-          Greetings! My name is {{$name->name}}, and I'm from Barangay Bantigue Hilongos, Leyte. I am a third-year student at MLG College of Learning, where I am pursuing a Bachelor of Science in Information Technology (BSIT), immersed in the ever-evolving world of technology. I have a strong desire to innovate and am fascinated by the constantly changing field of information technology. I am excited to learn more about networking and programming, among other things. Beyond the classroom, I enjoy exploring a variety of extracurricular interests and activities that enhance my education in general. Let's embrace the process of learning and development, one code at a time!
-
-          I am driven by a wide range of interests and passions outside the walls of textbooks and lectures.
+          @foreach($about as $abouts)
+          <p>{{$abouts->description}}</p>
         <br>
         <br>
         <br>
@@ -110,7 +110,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  @foreach($about as $abouts)
+                  
                   <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{$abouts->birthday}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Religion:</strong> <span>{{$abouts->religion}}</span></li>
                   
@@ -269,16 +269,18 @@
                     @endif
                 </div>
             </div>
-
+          
             <div class="col-lg-6" data-aos="fade-up">
                 <h3 class="resume-title">Experience</h3>
                 <div class="resume-item">
-                    <h4>Senior graphic design specialist</h4>
-                    <h5>2019 - Present</h5>
-                    <p><em>Experion, New York, NY </em></p>
-                    <ul>
-                        <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                        <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
+                @foreach($experience as $experiences)
+                    <h4>{{$experiences->work_experience}}</h4>
+                    <h5>{{$experiences->date_hired}}</h5>
+                    <p><em>{{$experiences->address}}</em></p>
+                    
+                        <li>{{$experiences->description}}</li>
+                        @endforeach
+                        <!-- <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
                         <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
                         <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
                     </ul>
@@ -294,9 +296,10 @@
                         <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
+    
 </section>
 
 <!-- End Resume Section -->
@@ -305,20 +308,30 @@
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
-      <div class="container">
+    <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Blogs</h2>
+            <h4>Leyte has many tourist spots that are worth visiting. Here are some of the must-see destinations in Leyte</h4>
         </div>
 
+<section>
+    <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            @foreach($blogs as $blog)
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                <img src="{{ asset('storage/'. $blog->image) }}" class="img-fluid" alt="{{$blog->title}}">
+                <h4 class="title">{{$blog->title}}</a></h4>
+                <p align="justify">{{$blog->content}}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+
+          <!-- <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
             <div class="icon"><i class="bi bi-card-checklist"></i></div>
             <h4 class="title"><a href="">Dolor Sitema</a></h4>
             <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
@@ -345,7 +358,7 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
     <!-- </section>End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->

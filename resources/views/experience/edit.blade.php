@@ -12,7 +12,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header text-center">
-                    <h2>Edit Educational Attainment</h2>
+                    <h2>Edit Experience</h2>
                 </div>
                 <div class="card-body">
                     @if(session('status'))
@@ -20,55 +20,49 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="{{ route('educational_attainments.update', $educational_attainment->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('experiences.update', $experience->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <!-- <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" name="name" value="{{ $educational_attainment->name }}" class="form-control" placeholder="Name">
-                            @error('name')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div> -->
+                        
                         <div class="form-group">
-                            <label for="description">Description:</label>
-                            <input type="description" name="description" value="{{ $educational_attainment->description }}" class="form-control" placeholder="Description">
-                            @error('description')
+                            <label for="description">Work Experience:</label>
+                            <input type="text" name="work_experience" value="{{ $experience->work_experience }}" class="form-control" placeholder="Description">
+                            @error('work_experience')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                         <!-- <div class="form-group">
                             <label for="description">Description:</label>
-                            <input type="description" name="description" value="{{ $educational_attainment->description }}" class="form-control" placeholder="Description">
+                            <input type="description" name="description" value="{{ $experience->description }}" class="form-control" placeholder="Description">
                             @error('description')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div> -->
                         <div class="form-group">
-                            <label for="grade_level">Grade Level:</label>
-                            <input type="text-number" name="grade_level" value="{{ $educational_attainment->grade_level }}" class="form-control" placeholder="Year Level">
+                            <label for="date_hired">Date Hired:</label>
+                            <input type="text-number" name="date_hired" value="{{ $experience->date_hired }}" class="form-control" placeholder="Date Hired">
+                            @error('date_hired')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" name="address" value="{{ $experience->address }}" class="form-control" placeholder="Address">
+                            @error('address')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" value="{{ $experience->description }}" class="form-control" placeholder="Name of School">
                             @error('description')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="year_graduate">Year Graduate:</label>
-                            <input type="text" name="year_graduate" value="{{ $educational_attainment->year_graduate }}" class="form-control" placeholder="Year Graduate">
-                            @error('year_graduate')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="name_school">Name of School:</label>
-                            <input type="text" name="name_school" value="{{ $educational_attainment->name_school }}" class="form-control" placeholder="Name of School">
-                            @error('name_school')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a class="btn btn-outline-secondary ml-2" href="{{ route('educational_attainments.index') }}">Back</a>
+                            <a class="btn btn-outline-secondary ml-2" href="{{ route('experiences.index') }}">Back</a>
                         </div>
                     </form>
                 </div>

@@ -2,7 +2,7 @@
 
 @section('content')
     <meta charset="UTF-8">
-    <title>About</title>
+    <title>Webinar</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
@@ -13,10 +13,10 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Skills Table</h2>
+                <h2>Webinar</h2>
             </div>
             <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('skills.create') }}"> Create Skills</a>
+            <!-- <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a> -->
             </div>
         </div>
     </div>
@@ -30,19 +30,26 @@
     <table class="table table-bordered">
         <tr>
             <th>#</th>
-            <th>Skill Name</th>
-            <th>Percentage</th>
+
+            <th>Certificate</th>
+            <th>Agenda</th>
+            <th>Host Name</th>
+            <th>Date</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($skills as $skill)
+        @foreach ($webinars as $webinar)
         <tr>
-            <td>{{ $skill->id }}</td>
-            <td>{{ $skill->skill_name }}</td>
-            <td>{{ $skill->percentage }}</td>
+            <td>{{ $webinar->id }}</td>
+            <td>{{ $webinar->certificate }}</td>
+            <td>{{ $webinar->agenda }}</td>
+            <td>{{ $webinar->host_name }}</td>
+            <td>{{ $webinar->date }}</td>
+           
+
             <td>
-                <form action="{{ route('skills.destroy',$skill->id) }}" method="Post">
-                <!-- <a class="btn btn-success" href="{{ route('skills.create') }}"> Create</a> -->
-                    <a class="btn btn-primary" href="{{ route('skills.edit',$skill->id) }}">Update</a>
+                <form action="{{ route('webinars.destroy',$webinar->id) }}" method="Post">
+                <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a>
+                    <a class="btn btn-primary" href="{{ route('webinars.edit',$webinar->id) }}">Update</a>
    
                     @csrf
                     @method('DELETE')

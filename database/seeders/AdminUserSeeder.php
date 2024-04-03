@@ -35,7 +35,7 @@ class AdminUserSeeder extends Seeder
             
             DB::table('abouts')->insert ([
                 [ 
-          
+            'description'=> 'Greetings! My name is Matt Earl Pino ',      
             'birthday' => 'January 20, 2002',
             'religion' => 'Roman Catholic',
             'degree' => 'Bachelor of Science Information Technogloy',

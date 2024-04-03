@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
+@extends('layouts.app')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
-</head>
-<body>
-
+@section('content')
 <div class="container mt-2">
 
 <div class="row">
@@ -33,7 +26,7 @@
             <th>Role:</th>
             <th>Username:</th>
             <th>Email:</th>
-            <th width="280px">Action</th>
+            <th width="450">Action</th>
         </tr>
         @foreach ($users as $user)
         <tr>
@@ -44,7 +37,7 @@
             <td>
                 <form action="{{ route('users.destroy',$user->id) }}" method="Post">
                 <a class="btn btn-success" href="{{ route('users.create') }}"> Create</a>
-                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
@@ -56,6 +49,4 @@
         @endforeach
     </table>
   
-
-</body>
-</html>
+@endsection

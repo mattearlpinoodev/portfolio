@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+@extends('layouts.app')
+
+@section('content')
     <meta charset="UTF-8">
-    <title>About</title>
+    <title>Educational Attainment</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
@@ -47,7 +47,7 @@
 
             <td>
                 <form action="{{ route('educational_attainments.destroy',$educational_attainment->id) }}" method="Post">
-                <a class="btn btn-success" href="{{ route('educational_attainments.create') }}"> Create</a>
+                <!-- <a class="btn btn-success" href="{{ route('educational_attainments.create') }}"> Create</a> -->
                     <a class="btn btn-primary" href="{{ route('educational_attainments.edit',$educational_attainment->id) }}">Update</a>
    
                     @csrf
@@ -63,3 +63,4 @@
 
 </body>
 </html>
+@endsection

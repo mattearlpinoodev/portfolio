@@ -30,7 +30,7 @@
             
             
                 <li class="sidebar-item active ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="http://127.0.0.1:8000/home" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
                         <span>Dashboard</span>
                     </a>
@@ -239,11 +239,32 @@
                     </a>
                     
                 </li>
+                <li class="sidebar-item  ">
+                <a href="{{ route('experiences.index') }}" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i> 
+                        <span>Experiences</span>
+                    </a>
+                    
+                </li>
+                <li class="sidebar-item  ">
+                <a href="{{ route('blogs.index') }}" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i> 
+                        <span>Blogs</span>
+                    </a>
+                    
+                </li>
+                <li class="sidebar-item  ">
+                <a href="{{ route('webinars.index') }}" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i> 
+                        <span>Webinar</span>
+                    </a>
+                    
+                </li>
                   
             
             
             
-                <li class="sidebar-item  has-sub">
+                <!-- <li class="sidebar-item  has-sub">
                 <a href="{{ route('educational_attainments.index') }}" class='sidebar-link'>
                         <i data-feather="trending-up" width="20"></i> 
                         <span>Charts</span>
@@ -261,15 +282,15 @@
                         
                     </ul>
                     
-                </li>
+                </li> -->
 
             
             
             
-                <li class='sidebar-title'>Pages</li>
+                <!-- <li class='sidebar-title'>Pages</li> -->
             
             
-            
+<!--             
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i data-feather="user" width="20"></i> 
@@ -292,12 +313,12 @@
                         
                     </ul>
                     
-                </li>
+                </li> -->
 
             
             
             
-                <li class="sidebar-item  has-sub">
+                <!-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i data-feather="alert-circle" width="20"></i> 
                         <span>Errors</span>
@@ -321,7 +342,7 @@
                     
                 </li>
 
-            
+             -->
             
          
         </ul>
@@ -378,7 +399,7 @@
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar mr-1">
-                                    <img src="../dashboard/assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="../dashboard/assets/images/profile1.jpg" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">{{ Auth::user()->name}}</div>
                             </a>
@@ -401,9 +422,7 @@
             </nav>
 
 
-            <main class="py-4">
             @yield('content')
-        </main>
 
 
     <!-- <section class="section">

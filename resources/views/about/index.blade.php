@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
+@extends('layouts.app')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Include your custom CSS file -->
-</head>
-<body>
+@section('content')
 
 <div class="container mt-2">
 
@@ -31,6 +24,7 @@
     <table class="table table-bordered custom-table">
         <tr>
             <th>#</th>
+            <th>Description</th>
             <th>Birthday</th>
             <th>Religion</th>
             <th>Degree</th>
@@ -44,6 +38,7 @@
         @foreach ($abouts as $about)
         <tr>
             <td>{{ $about->id }}</td>
+            <td>{{ $about->description }}</td>
             <td>{{ $about->birthday }}</td>
             <td>{{ $about->religion }}</td>
             <td>{{ $about->degree }}</td>
@@ -70,3 +65,4 @@
 
 </body>
 </html>
+@endsection
