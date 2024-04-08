@@ -126,12 +126,11 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{$abouts->phone_number}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{$abouts->email}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Gender:</strong> <span>{{$abouts->gender}}</span></li>
-                  @endforeach
+                 
                 </ul>
               </div>
             </div>
-            
-            
+            @endforeach
           </div>
         </div>
 
