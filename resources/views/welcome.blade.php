@@ -48,7 +48,7 @@
       <div class="profile">
         <img src="assets/img/qw.jpg" alt="" class="img-fluid rounded-circle">
         
-        <h1 class="text-light"><a href="index.html">{{ ucwords($user->name) }}</a></h1>
+        <h1 class="text-light"><a href="index.html">{{ ucwords("Matt Earl Pino") }}</a></h1>
      
         <div class="social-links mt-3 text-center">
           <a href="https://github.com/mattearlpinoodev" class="github"><i class="bx bxl-github"></i></a>
