@@ -16,8 +16,10 @@
                 <h2>Webinar</h2>
             </div>
             <div class="pull-right mb-2">
+            @if(Auth::user()->role === 'admin')
             <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a>
-            </div>
+            @endif
+        </div>
         </div>
     </div>
    
@@ -35,7 +37,9 @@
             <th>Agenda</th>
             <th>Host Name</th>
             <th>Date</th>
+            @if(Auth::user()->role === 'admin')
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($webinars as $webinar)
         <tr>
@@ -53,13 +57,15 @@
 
             <td>
                 <form action="{{ route('webinars.destroy',$webinar->id) }}" method="Post">
-                <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a>
+                @if(Auth::user()->role === 'admin')
+                <!-- <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a> -->
                     <a class="btn btn-primary" href="{{ route('webinars.edit',$webinar->id) }}">Edit</a>
-   
+                @endif
 
                                   <!-- Delete Button -->
+              @if(Auth::user()->role === 'admin')
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $webinar->id }}">Delete</button>
-
+                @endif
 <!-- Delete Modal -->
 <div class="modal fade" id="deleteModal{{$webinar->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$webinar->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

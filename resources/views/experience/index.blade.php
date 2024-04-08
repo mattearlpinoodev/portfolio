@@ -16,8 +16,10 @@
                 <h2>Experience</h2>
             </div>
             <div class="pull-right mb-2">
+            @if(Auth::user()->role === 'admin')
             <a class="btn btn-success" href="{{ route('experiences.create') }}"> Create</a>
-            </div>
+           @endif
+        </div>
         </div>
     </div>
    
@@ -35,7 +37,9 @@
             <th>Date Hired</th>
             <th>Address</th>
             <th>Description</th>
+            @if(Auth::user()->role === 'admin')
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($experiences as $experience)
         <tr>
@@ -48,11 +52,13 @@
             <td>
                 <form action="{{ route('experiences.destroy',$experience->id) }}" method="Post">
                 <!-- <a class="btn btn-success" href="{{ route('experiences.create') }}"> Create</a> -->
+                @if(Auth::user()->role === 'admin')
                     <a class="btn btn-primary" href="{{ route('experiences.edit',$experience->id) }}">Edit</a>
-
+                @endif
                   <!-- Delete Button -->
+                  @if(Auth::user()->role === 'admin')
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $experience->id }}">Delete</button>
-
+                    @endif
 <!-- Delete Modal -->
 <div class="modal fade" id="deleteModal{{$experience->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$experience->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

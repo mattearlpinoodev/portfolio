@@ -18,8 +18,11 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Message</th>
+            @if(Auth::user()->role === 'admin')
             <th>Action</th>
+            @endif
         </tr>
+       
         @foreach ($contacts as $contact)
         <tr>
             <td>{{ $loop->iteration }}</td>
@@ -30,8 +33,9 @@
             <td>
                     <!-- <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a> -->
                    <!-- Delete Button -->
+                   @if(Auth::user()->role === 'admin')
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $contact->id }}">Delete</button>
-
+                    @endif
 <!-- Delete Modal -->
 <div class="modal fade" id="deleteModal{{$contact->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$contact->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

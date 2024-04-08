@@ -16,7 +16,9 @@
                 <h2>Skills Table</h2>
             </div>
             <div class="pull-right mb-2">
+            @if(Auth::user()->role === 'admin')
                 <a class="btn btn-success" href="{{ route('skills.create') }}"> Create Skills</a>
+          @endif
             </div>
         </div>
     </div>
@@ -32,7 +34,9 @@
             <th>#</th>
             <th>Skill Name</th>
             <th>Percentage</th>
+            @if(Auth::user()->role === 'admin')
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($skills as $skill)
         <tr>
@@ -42,12 +46,15 @@
             <td>
                 <form action="{{ route('skills.destroy',$skill->id) }}" method="Post">
                 <!-- <a class="btn btn-success" href="{{ route('skills.create') }}"> Create</a> -->
+                @if(Auth::user()->role === 'admin')
                     <a class="btn btn-primary" href="{{ route('skills.edit',$skill->id) }}">Update</a>
+                @endif
 
-
-                                      <!-- Delete Button -->
+      
+                <!-- Delete Button -->
+                @if(Auth::user()->role === 'admin')
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $skill->id }}">Delete</button>
-
+                @endif
 <!-- Delete Modal -->
 <div class="modal fade" id="deleteModal{{$skill->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$skill->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

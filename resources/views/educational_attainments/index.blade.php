@@ -16,8 +16,10 @@
                 <h2>Educational Attainment</h2>
             </div>
             <div class="pull-right mb-2">
+            @if(Auth::user()->role === 'admin')
             <a class="btn btn-success" href="{{ route('educational_attainments.create') }}"> Create</a>
-            </div>
+            @endif
+        </div>
         </div>
     </div>
    
@@ -35,7 +37,9 @@
             <th>Grade Level</th>
             <th>Year Graduate</th>
             <th>Name of School</th>
+            @if(Auth::user()->role === 'admin')
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($educational_attainments as $educational_attainment)
         <tr>
@@ -48,11 +52,13 @@
             <td>
                 <form action="{{ route('educational_attainments.destroy',$educational_attainment->id) }}" method="Post">
                 <!-- <a class="btn btn-success" href="{{ route('educational_attainments.create') }}"> Create</a> -->
+                @if(Auth::user()->role === 'admin')
                     <a class="btn btn-primary" href="{{ route('educational_attainments.edit',$educational_attainment->id) }}">Edit</a>
-   
+                @endif
          <!-- Delete Button -->
+         @if(Auth::user()->role === 'admin')
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $educational_attainment->id }}">Delete</button>
-
+        @endif
 <!-- Delete Modal -->
 <div class="modal fade" id="deleteModal{{$educational_attainment->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$educational_attainment->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

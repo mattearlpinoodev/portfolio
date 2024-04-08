@@ -9,7 +9,9 @@
                 <h2>Works Table</h2>
             </div>
             <div class="pull-right mb-2">
+            @if(Auth::user()->role === 'admin')
                 <a class="btn btn-success" href="{{ route('works.create') }}"> Create Works</a>
+            @endif
             </div>
         </div>
     </div>
@@ -26,7 +28,9 @@
             <th>Title:</th>
             <th>Link:</th>
             <th>Image:</th>
+            @if(Auth::user()->role === 'admin')
             <th width="450">Action</th>
+            @endif
         </tr>
         @foreach ($works as $work)
         <tr>
@@ -40,8 +44,10 @@
                         @endif</td>
             <td>
                 <!-- <a class="btn btn-success" href="{{ route('works.create') }}"> Create</a> -->
+                @if(Auth::user()->role === 'admin')
                 <a class="btn btn-primary" href="{{ route('works.edit',$work->id) }}">Edit</a>
                 <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $work->id }}">Delete</button>
+                @endif
                 
                 <div class="modal fade" id="deleteModal{{$work->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$work->id}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">

@@ -33,8 +33,11 @@
             <th>Phone Number</th>
             <th>Email</th>
             <th>Gender</th>
+            @if(Auth::user()->role === 'admin')
             <th>Action</th>
+            @endif
         </tr>
+       
         @foreach ($abouts as $about)
         <tr>
             <td>{{ $about->id }}</td>
@@ -49,9 +52,9 @@
             <td>{{ $about->gender }}</td>
             <td>
                 <form action="{{ route('abouts.destroy',$about->id) }}" method="Post">
-
+                @if(Auth::user()->role === 'admin')
                     <a class="btn btn-primary" href="{{ route('abouts.edit',$about->id) }}">Edit</a>
-
+                @endif
                     @csrf
                     @method('DELETE')
 
