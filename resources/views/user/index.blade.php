@@ -35,7 +35,7 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Create</a>
+                <!-- <a class="btn btn-success" href="{{ route('users.create') }}"> Create</a> -->
                 <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
                 <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $user->id }}">Delete</button>
                 

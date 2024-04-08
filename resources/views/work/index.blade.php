@@ -39,7 +39,7 @@
                         <img src="assets/img/ils.jpg" alt="" style="width: 50px; height:50px;">
                         @endif</td>
             <td>
-                <a class="btn btn-success" href="{{ route('works.create') }}"> Create</a>
+                <!-- <a class="btn btn-success" href="{{ route('works.create') }}"> Create</a> -->
                 <a class="btn btn-primary" href="{{ route('works.edit',$work->id) }}">Edit</a>
                 <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $work->id }}">Delete</button>
                 
