@@ -71,7 +71,7 @@
           <li><a href="{{ route('login') }}" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Login</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
-    </div>
+    <!-- </div> -->
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -85,13 +85,13 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    
+     @foreach($about as $abouts)
     <section id="about" class="about">
       <div class="container">
 
         <div class="section-title">
           <h2>About</h2>
-          @foreach($about as $abouts)
+          
           <p>{{$abouts->description}}</p>
         <br>
         <br>
@@ -110,6 +110,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
+               
                   
                   <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{$abouts->birthday}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Religion:</strong> <span>{{$abouts->religion}}</span></li>
@@ -126,11 +127,11 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{$abouts->phone_number}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{$abouts->email}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Gender:</strong> <span>{{$abouts->gender}}</span></li>
-                 
+                 @endforeach
                 </ul>
               </div>
             </div>
-            @endforeach
+          
           </div>
         </div>
 
