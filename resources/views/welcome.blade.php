@@ -132,10 +132,10 @@
               </div>
             </div>
           
-          <!-- </div>
+          </div>
         </div>
 
-      </div> -->
+      </div>
     </section><!-- End About Section -->
 
   <!-- ======= Works ======= -->
@@ -286,12 +286,12 @@
               <i> <span> {{ucwords($webinar->date)}}</i></span> 
             </div>
           </div>
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
       @endforeach
-    </div>
+    <!-- </div>
 
-  </div>
+  </div> -->
 </section>
 
     <!-- </section>End Services Section -->
@@ -386,8 +386,8 @@
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
   </footer><!-- End  Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
