@@ -63,6 +63,6 @@
     </table>
 
 
-</body>
-</html>
+
 @endsection
+

@@ -38,7 +38,7 @@
                             @enderror
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                             <a class="btn btn-outline-secondary ml-2" href="{{ route('skills.index') }}">Back</a>
                         </div>
                     </form>

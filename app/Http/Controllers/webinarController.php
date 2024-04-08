@@ -32,8 +32,22 @@ class webinarController extends Controller
        */
       public function store(Request $request)
       {
-          //
-         Webinar::create($request->all());
+        $data = $request->validate([
+            'certificate' => 'required',
+            'agenda' => 'required',
+            'host_name' => 'required',
+            'date' => 'required',
+          
+        ]);
+   
+        if($request->hasFile('certificate')){
+            $image = $request->file('certificate');
+            $imagePath = $image->store('img', 'public');
+            $data['certificate'] = $imagePath; 
+        }    
+
+
+         Webinar::create($data);
          return redirect()->route('webinars.index');
        
       }
@@ -60,8 +74,24 @@ class webinarController extends Controller
        */
       public function update(Request $request, Webinar $webinar): RedirectResponse
       {
-          //
-         $webinar->update($request->all());
+          
+        $data = $request->validate([
+            'certificate' => 'required',
+            'agenda' => 'required',
+            'host_name' => 'required',
+            'date' => 'required',
+          
+        ]);
+   
+        if($request->hasFile('certificate')){
+            $image = $request->file('certificate');
+            $imagePath = $image->store('img', 'public');
+            $data['certificate'] = $imagePath; 
+        }    
+
+
+        
+         $webinar->update($data);
   
          return redirect()->route('webinars.index');
   

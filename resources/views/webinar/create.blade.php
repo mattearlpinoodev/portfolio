@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Add Blogs</button>
+                            <button type="submit" class="btn btn-primary">Add Webinar</button>
                             <a class="btn btn-outline-danger ml-2" href="{{ route('webinars.index') }}">Back</a>
                         </div>
                     </form>

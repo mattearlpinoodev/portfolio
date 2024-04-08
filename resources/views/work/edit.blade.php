@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit User</title>
+    <title>Edit Works</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
        body {
@@ -17,7 +17,7 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Edit User</h2>
+                    <h2 class="text-center">Edit Works</h2>
                 </div>
                 <div class="card-body">
                     @if(session('status'))
@@ -25,26 +25,33 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('works.update', $work->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}" placeholder="Enter Name">
-                            @error('name')
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" class="form-control" value="{{ $work->title }}" placeholder="Title">
+                            @error('title')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}" placeholder="Enter Email">
-                            @error('email')
+                            <label for="link">Link</label>
+                            <input type="link" name="link" id="link" class="form-control" value="{{ $work->link }}" placeholder="Enter Link">
+                            @error('link')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" id="image" class="form-control" value="{{ $work->image }}" placeholder="Enter image">
+                            @error('image')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('users.index') }}" class="btn btn-danger ml-2">Back</a>
+                            <a href="{{ route('works.index') }}" class="btn btn-danger ml-2">Back</a>
                         </div>
                     </form>
                 </div>

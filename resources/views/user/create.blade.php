@@ -19,7 +19,10 @@
                         <div class="form-group">
                             <label for="role">Role</label>
                             <select name="role" id="role" class="form-control">
-                                <option value="spectator">Spectator</option>
+                            <option value="" selected disabled>Role</option>
+                                
+                            <option value="admin">Admin</option>
+                            <option value="spectator">Spectator</option>
                                
                             </select>
                             @error('role')

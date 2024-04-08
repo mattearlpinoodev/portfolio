@@ -2,29 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class FrontEndController extends Controller
+class contactsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-        $user = DB::table('users')->where('role', 'admin')->get();
-        
-        $about = DB::table('abouts')->get();
-
-        $skill = DB::table('skills')->get();
-        $experience = DB::table('experiences')->get();
-        $blogs = DB::table('blogs')->get();
-        $works = DB::table('works')->get();
-        $webinars = DB::table('webinars')->get();
-        $educational_attainment = DB::table('educational_attainments')->get();
-
-         return view('welcome', compact('skill', 'educational_attainment','blogs' , 'experience' ,'about', 'user', 'works', 'webinars'));
+        $contacts = Contact::orderBy('created_at', 'DESC')->get();
+  
+        return view('contacts.index', compact('contacts'));
     }
 
     /**
@@ -32,7 +23,7 @@ class FrontEndController extends Controller
      */
     public function create()
     {
-        //
+        // return view('welcome');
     }
 
     /**
@@ -40,7 +31,16 @@ class FrontEndController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contacts = new Contact();
+
+        $contacts->first_name = $request->input('first_name');
+        $contacts->last_name = $request->input('last_name');
+        $contacts->email = $request->input('email');
+        $contacts->message = $request->input('message');
+
+        $contacts->save();
+
+        return redirect('http://127.0.0.1:8000/');
     }
 
     /**
@@ -70,8 +70,11 @@ class FrontEndController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
+    public function destroy (Contact $contact): RedirectResponse{
         //
-    }
+        $contact->delete();
+  
+          return redirect()->route('contacts.index');
+      }
+    
 }

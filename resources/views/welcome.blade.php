@@ -67,7 +67,7 @@
           <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-brain"></i> <span>Skill</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Educational Attainment</span></a></li>
           <li><a href="#services" class="nav-link scrollto"><i class="bx bx-cog"></i> <span>Blogs</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="#webinar" class="nav-link scrollto"><i class="bx bx-briefcase"></i> <span>Webinar</span></a></li> <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
           <li><a href="{{ route('login') }}" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Login</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -129,119 +129,64 @@
                 </ul>
               </div>
             </div>
-            <!-- <li><i class="bi bi-chevron-right"></i> <strong></strong> <span>Description</span></li>
-            <p>
-            A dynamic and evolving document that should be regularly updated to reflect the creator's latest work, achievements, and skills. It's essential to keep the portfolio current and relevant by adding new projects, updating descriptions, replacing outdated materials, and removing irrelevant content. -->
-            </p>
+            
+         
           </div>
         </div>
 
       </div>
     </section><!-- End About Section -->
 
-  <!-- ======= Portfolio Section ======= -->
+  <!-- ======= Works ======= -->
   <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
+    <div class="container">
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <h1>Works</h1>
+            <h2>Portfolio</h2>
+            <h1>Works</h1>
         </div>
-
-        <!-- <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div> -->
-
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <div class="portfolio-wrap">
-            <img src="assets/img/land.gif" class="img-fluid" alt="">
-            <div class="portfolio-info">
-                <h4 class="text-center">Comics Inventory System</h4>
+            @foreach($works as $work)
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                    <img src="{{ asset('storage/'. $work->image) }}" class="img-fluid" alt="{{$work->title}}">
+                    <div class="portfolio-info">
+                        <h4 class="text-center">{{$work->title}}</h4>
+                    </div>
+                    <div class="portfolio-links">
+                        <a href="{{ asset('storage/'. $work->image) }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                        <a href="{{$work->link}}" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpgs" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="https://comicsinventory.webactivities.online" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
+</section>
 
   <!-- End Portfolio Section -->
 
     <!-- ======= Skills Section ======= -->
-    
     <section id="skills" class="skills section-bg">
-      <div class="container">
-       
+    <div class="container">
         <div class="section-title">
-          <h2>Skills</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Skills</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
-        @foreach($skill as $skills) 
         <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-          
-            <div class="progress">
-              <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+            @foreach($skill as $skills)
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="progress">
+                    <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
             </div>
-
-            <!-- <div class="progress">
-              <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->percentage}}%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->percentage}}</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">{{$skills->skill_name}}<i class="val">{{$skills->percentage}}"</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->percentage}}</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{$skills->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div> -->
-<!-- 
-          </div> -->
-
+            @endforeach
         </div>
+    </div>
+</section>
 
-      </div>
-      @endforeach
     <!-- </section>End Skills Section -->
 
     <!-- ======= Resume Section ======= -->
@@ -280,23 +225,7 @@
                     
                         <li>{{$experiences->description}}</li>
                         @endforeach
-                        <!-- <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                        <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                        <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-                    </ul>
-                </div>
-                <div class="resume-item">
-                    <h4>Graphic design specialist</h4>
-                    <h5>2017 - 2018</h5>
-                    <p><em>Stepping Stone Advertising, New York, NY</em></p>
-                    <ul>
-                        <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                        <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                        <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                        <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-                    </ul>
-                </div>
-            </div> -->
+
         </div>
     </div>
     
@@ -328,37 +257,42 @@
         </div>
     </div>
 </section>
+  <!-- =======Webinar ======= -->
+  
+  <section id="webinar" class="webinar">
+  <div class="container">
 
+    <div class="section-title">
+      <h2>Webinar</h2>
+    </div>
 
-
-          <!-- <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+    <div class="row">
+      @foreach($webinars as $webinar)
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <img src="{{ asset('storage/'. $webinar->certificate) }}" class="img-fluid" alt="{{$webinar->agenda}}">
+          <div class="webinar-info">
+            <div class="webinar-label">
+              <strong>Certificate By:</strong>
+              <span>{{ucwords($webinar->host_name)}}</span>
+            </div>
+            <div class="webinar-label">
+              <strong>Agenda:</strong>
+              <span>{{ucwords($webinar->agenda)}}</span>
+            </div>
+            <div class="webinar-label">
+              <strong>Date:</strong>
+              <i> <span> {{ucwords($webinar->date)}}</i></span> 
+            </div>
           </div>
         </div>
+      </div>
+      @endforeach
+    </div>
 
-      </div> -->
+  </div>
+</section>
+
     <!-- </section>End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->
@@ -399,32 +333,37 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+          <form action="{{ route('contacts.store') }}" method="POST" enctype="multipart/form-data" class="single-form quate-form wow fadeInUp" data-toggle="validator">
+                                        @csrf
+                                           <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                           <div class="row">
+                                               <div class="col-md-6 col-sm-12">
+                                               <label for="first_name">First Name</label>
+                                                <input name="first_name" class="contact-name form-control" id="name" type="text" placeholder="First Name" required>
+                                               </div>
+                                               <div class="col-md-6 col-sm-12">
+                                               <label for="last_name">Last Name</label>
+
+                                                   <input name="last_name" class="contact-email form-control" id="L_name" type="text" placeholder="Last Name" required>
+                                               </div>
+                                               <div class="col-sm-12">
+                                               <label for="email">Email</label>
+                                                   <input name="email" class="contact-subject form-control" id="email" type="email" placeholder="Your Email" required>
+                                               </div>
+                                               <div class="col-sm-12">
+                                               <label for="message">Message</label>
+
+                                               <textarea name="message" class="form-control contact-message" id="message" rows="10" placeholder="Your Message" required></textarea>
+                                               </div>
+                                               <!-- Subject Button -->
+                                               <div class="btn-form col-sm-12">
+                                               <div class="text-center">
+
+                                                   <button type="submit" class="btn btn-fill btn-primary" id="form-submit">Send Message</button>
+                                               </div>
+                                           </div>
+                                       </form>
+
           </div>
 
         </div>
