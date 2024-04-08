@@ -116,7 +116,7 @@
                   
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{$abouts->degree}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{$abouts->city}}</span></li>
-                  @endforeach
+                
                 </ul>
                 </ul>
               </div>
@@ -130,7 +130,7 @@
               </div>
             </div>
             
-         
+            @endforeach
           </div>
         </div>
 
