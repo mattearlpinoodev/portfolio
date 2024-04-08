@@ -36,8 +36,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['checkRole:admin'])->group(function () {
 Route::resource('users', UserController::class);
 
-});
 
+});
 Route::resource('abouts', aboutController::class);
 Route::resource('skills', skillController::class);
 Route::resource('educational_attainments', educational_attainmentController::class);

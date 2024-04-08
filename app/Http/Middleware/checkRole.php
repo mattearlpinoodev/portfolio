@@ -10,15 +10,18 @@ class checkRole
 {
     public function handle(Request $request, Closure $next, $role)
     {
-        if (!$request->user()) {
-            return redirect()->route('login');
-        }
+        // if (!$request->user()) {
+        //     return redirect()->route('login');
+        // }
 
         // Check if the user has the required role
-        if (!$request->user()->hasRole($role)) {
-            abort(403, 'Unauthorized');
-        }
+        // if (!$request->user()->hasRole($role)) {
+        //     abort(403, 'Unauthorized');
+        // }
+      if  (!$request->user()->role != $role){
+        return abort(403, 'Unauthorized');
+      }
 
-        return $next($request);
+        // return $next($request);
     }
 }

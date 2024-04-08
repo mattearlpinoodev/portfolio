@@ -40,7 +40,7 @@ class contactsController extends Controller
 
         $contacts->save();
 
-        return redirect('http://pino.webactivities.online/');
+        return redirect('http://mattearlpino.online/');
     }
 
     /**
