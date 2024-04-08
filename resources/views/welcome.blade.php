@@ -71,7 +71,7 @@
           <li><a href="{{ route('login') }}" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Login</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
-    <!-- </div> -->
+    </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
