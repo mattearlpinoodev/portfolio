@@ -47,7 +47,7 @@
 
       <div class="profile">
         <img src="assets/img/qw.jpg" alt="" class="img-fluid rounded-circle">
-        @foreach($user as $name)
+        
         <h1 class="text-light"><a href="index.html">{{ ucwords($name->name) }}</a></h1>
      
         <div class="social-links mt-3 text-center">
@@ -57,6 +57,7 @@
           <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
           <a href="https://www.linkedin.com/in/mattearl-pinoo-632723261/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
+
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
@@ -72,16 +73,17 @@
         </ul>
       </nav><!-- .nav-menu -->
     </div>
+
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>{{$name->name}}</h1>
+      <h1>Matt Earl Pino</h1>
       <p>Your Future <span class="typed" data-typed-items="Web Developer,   Graphic Designer"></span></p>
     </div>
   </section><!-- End Hero -->
-  @endforeach
+  
   <main id="main">
 
     <!-- ======= About Section ======= -->
