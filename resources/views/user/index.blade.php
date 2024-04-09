@@ -29,8 +29,9 @@
             <th>Role:</th>
             <th>Username:</th>
             <th>Email:</th>
+            @if(Auth::user()->role === 'admin')
             <th width="450">Action</th>
-            
+            @endif
         </tr>
         @foreach ($users as $user)
         <tr>
