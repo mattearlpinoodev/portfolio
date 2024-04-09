@@ -14,7 +14,7 @@ class checkRole
         //     return redirect()->route('login');
         // }
 
-        // Check if the user has the required role
+        // // Check if the user has the required role
         // if (!$request->user()->hasRole($role)) {
         //     abort(403, 'Unauthorized');
         // }

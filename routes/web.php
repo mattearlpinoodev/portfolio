@@ -33,8 +33,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['checkRole:admin'])->group(function () {
-
+Route::middleware(['checkRole:admin'])->group(function () { 
+    
 
 
 });

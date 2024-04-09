@@ -29,6 +29,20 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
+                            <label for="name">Avatar</label>
+                            <input type="file" name="avatar" id="avatar" class="form-control" value="{{ $user->avatar }}" placeholder="Enter Name">
+                            @error('name')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Role</label>
+                            <input type="text" name="role" id="role" class="form-control" value="{{ $user->role }}" placeholder="Enter Role">
+                            @error('role')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}" placeholder="Enter Name">
                             @error('name')

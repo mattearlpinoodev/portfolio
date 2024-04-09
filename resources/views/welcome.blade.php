@@ -44,12 +44,13 @@
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
+      @foreach($user as $users)
 
       <div class="profile">
         <img src="assets/img/qw.jpg" alt="" class="img-fluid rounded-circle">
         
         <h1 class="text-light"><a href="index.html">{{ ucwords("Matt Earl Pino") }}</a></h1>
-     
+     @endforeach
         <div class="social-links mt-3 text-center">
           <a href="https://github.com/mattearlpinoodev" class="github"><i class="bx bxl-github"></i></a>
           <a href="https://www.facebook.com/mattearl.pino" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -77,6 +78,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
+  
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Matt Earl Pino</h1>

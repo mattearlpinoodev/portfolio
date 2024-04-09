@@ -73,7 +73,7 @@
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar mr-1">
-                                    <img src="../dashboard/assets/images/profile1.jpg" alt="" srcset="">
+                                <img src="{{ asset('storage/'. Auth::user()->avatar) }}" 
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">{{ Auth::user()->name}}</div>
                             </a>

@@ -15,8 +15,16 @@
                         </div>
                     @endif
                     <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                        @csrf   
                         <div class="form-group">
+                            <label for="name">Avatar</label>
+                            <input type="file" name="avatar" id="avatar" class="form-control" placeholder="Enter Avatar">
+                            @error('avatar')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            
                             <label for="role">Role</label>
                             <select name="role" id="role" class="form-control">
                             <option value="" selected disabled>Role</option>

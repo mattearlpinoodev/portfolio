@@ -33,9 +33,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-       User::create($request->all());
-       return redirect()->route('users.index');
+        {
+            $data = $request->validate([
+            'avatar' => 'required',
+            'role' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+          
+        ]);
+   
+        if($request->hasFile('avatar')){
+            $image = $request->file('avatar');
+            $imagePath = $image->store('img', 'public');
+            $data['avatar'] = $imagePath; 
+        }
+        User::create($data);
+        return redirect()->route('users.index');
+    }
+       
      
     }
 
@@ -61,10 +77,26 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user): RedirectResponse
     {
-        //
-       $user->update($request->all());
+        $data = $request->validate([
+            'avatar' => 'required',
+            'role' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+         
+            
 
-       return redirect()->route('users.index');
+          
+        ]);
+   
+        if($request->hasFile('avatar')){
+            $image = $request->file('avatar');
+            $imagePath = $image->store('img', 'public');
+            $data['avatar'] = $imagePath; 
+        }
+         
+        $user->update($data);
+
+        return redirect()->route('users.index');
 
     }
 

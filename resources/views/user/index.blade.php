@@ -23,6 +23,7 @@
     <table class="table table-bordered">
         <tr>
             <th>#</th>
+            <th>Avatar</th>
             <th>Role:</th>
             <th>Username:</th>
             <th>Email:</th>
@@ -31,6 +32,11 @@
         @foreach ($users as $user)
         <tr>
             <td>{{ $loop->iteration }}</td>
+            <td>@if($user->avatar)
+                        <img src="{{'storage/' . $user->avatar}}" alt="" style="width: 50px; height:50px;">
+                        @else
+                        <img src="assets/img/ils.jpg" alt="" style="width: 50px; height:50px;">
+                        @endif</td>
             <td>{{ $user->role }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
