@@ -90,11 +90,11 @@ class AdminController extends Controller
         $users = User::findOrFail($id);
   
         if ($users->isAdmin()) {
-            return redirect()->route('users.index')->with('success', 'ADMIN USER CANNOT BE DELETED!!');
+            return redirect()->route('user.index')->with('success', 'ADMIN USER CANNOT BE DELETED!!');
         }
   
         $users->delete();
   
-        return redirect()->route('users.index')->with('success', 'User has been deleted successfully');
+        return redirect()->route('user.index')->with('success', 'User has been deleted successfully');
     }
 }
