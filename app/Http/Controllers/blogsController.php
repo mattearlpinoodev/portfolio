@@ -6,7 +6,7 @@ use App\Models\Blogs;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Support\Facades\Auth;
 class blogsController extends Controller
 {
     /**
@@ -15,6 +15,10 @@ class blogsController extends Controller
       public function index()
       {
           //
+          if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else
           $blogs = Blogs::get();
           return view('blogs.index', compact('blogs'));
       }
@@ -25,6 +29,10 @@ class blogsController extends Controller
       public function create()
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('blogs.create');
       }
   
@@ -64,6 +72,10 @@ class blogsController extends Controller
       public function edit(Blogs $blog)
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('blogs.edit', compact('blog'));
       }
   

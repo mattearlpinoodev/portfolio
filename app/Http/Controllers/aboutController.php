@@ -6,6 +6,7 @@ use App\Models\About;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 class aboutController extends Controller
 {
   /**
@@ -24,6 +25,10 @@ class aboutController extends Controller
     public function create()
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('about.create');
     }
 
@@ -52,6 +57,10 @@ class aboutController extends Controller
     public function edit(About $about)
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('about.edit', compact('about'));
     }
 

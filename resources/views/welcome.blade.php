@@ -114,9 +114,11 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-               
+               @php
+               $formattedbirthday = date('m/d/y', strtotime($abouts->birthday));
+               @endphp
                   
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{$abouts->birthday}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{$formattedbirthday}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Religion:</strong> <span>{{$abouts->religion}}</span></li>
                   
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{$abouts->degree}}</span></li>
@@ -127,7 +129,11 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{$abouts->age}}</span></li>
+                  @php
+                  $birthday = \Carbon\Carbon::parse($abouts->birthday);
+                  $age = $birthday->age;
+                  @endphp
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{$age}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{$abouts->phone_number}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{$abouts->email}}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Gender:</strong> <span>{{$abouts->gender}}</span></li>

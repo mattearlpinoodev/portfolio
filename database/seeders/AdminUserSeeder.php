@@ -32,7 +32,6 @@ class AdminUserSeeder extends Seeder
             'religion' => 'Roman Catholic',
             'degree' => 'Bachelor of Science Information Technogloy',
             'city' => 'Hilongos City',
-            'age' => '17',
             'phone_number' => '0912345678',
             'email' => 'mattearlpino@gmail.com',
             'gender' => 'male',

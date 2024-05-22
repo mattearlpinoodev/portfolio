@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,6 +16,10 @@ class UserController extends Controller
     public function index()
     {
         //
+       if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else 
         $users = User::get();
         return view('user.index', compact('users'));
     }
@@ -25,6 +30,10 @@ class UserController extends Controller
     public function create()
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('user.create');
     }
 
@@ -69,6 +78,10 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('user.edit', compact('user'));
     }
 

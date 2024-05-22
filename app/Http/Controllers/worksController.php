@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Works;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class worksController extends Controller
 {
@@ -14,6 +15,10 @@ class worksController extends Controller
       public function index()
       {
           //
+          if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else
           $works = Works::get();
           return view('work.index', compact('works'));
       }
@@ -24,6 +29,10 @@ class worksController extends Controller
       public function create()
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('work.create');
       }
   
@@ -64,6 +73,10 @@ class worksController extends Controller
       public function edit(Works $work)
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('work.edit', compact('work'));
       }
   

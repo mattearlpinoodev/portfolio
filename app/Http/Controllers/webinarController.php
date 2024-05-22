@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Webinar;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class webinarController extends Controller
 {
@@ -14,6 +15,10 @@ class webinarController extends Controller
       public function index()
       {
           //
+          if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else
           $webinars = Webinar::get();
           return view('webinar.index', compact('webinars'));
       }
@@ -24,6 +29,10 @@ class webinarController extends Controller
       public function create()
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('webinar.create');
       }
   
@@ -66,6 +75,10 @@ class webinarController extends Controller
       public function edit(Webinar $webinar)
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('webinar.edit', compact('webinar'));
       }
   

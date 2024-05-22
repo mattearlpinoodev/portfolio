@@ -6,6 +6,7 @@ use App\Models\Educational_attainment;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 class educational_attainmentController extends Controller
 {
   /**
@@ -14,6 +15,10 @@ class educational_attainmentController extends Controller
     public function index()
     {
         //
+        if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else
         $educational_attainments = Educational_attainment::get();
         return view('educational_attainments.index', compact('educational_attainments'));
     }
@@ -24,6 +29,10 @@ class educational_attainmentController extends Controller
     public function create()
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('educational_attainments.create');
     }
 
@@ -52,6 +61,10 @@ class educational_attainmentController extends Controller
     public function edit(Educational_attainment $educational_attainment)
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('educational_attainments.edit', compact('educational_attainment'));
     }
 

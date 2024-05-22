@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('religion')->nullable();
             $table->string('degree')->nullable();
             $table->string('city')->nullable();
-            $table->integer('age')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('email')->unique();
             $table->string('gender')->nullable();

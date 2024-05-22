@@ -7,6 +7,7 @@ use App\Models\Skill;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 class skillController extends Controller
 {
   /**
@@ -15,6 +16,10 @@ class skillController extends Controller
     public function index()
     {
         //
+        if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else
         $skills = Skill::get();
         return view('skills.index', compact('skills'));
     }
@@ -25,6 +30,10 @@ class skillController extends Controller
     public function create()
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('skills.create');
     }
 
@@ -62,6 +71,10 @@ class skillController extends Controller
     public function edit(Skill $skill)
     {
         //
+        if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
         return view('skills.edit', compact('skill'));
     }
 

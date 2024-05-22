@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,9 +16,12 @@ class About extends Model
         'religion',
         'degree',
         'city',
-        'age',
         'phone_number',
         'email',
         'gender'
     ];
+
+    public function getAgeAttribute(){
+        return Carbon::parse($this->attributes['birthday'])->age;
+    }
 }

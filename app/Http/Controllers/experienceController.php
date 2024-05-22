@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Experience;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class experienceController extends Controller
 {
     /**
@@ -14,6 +14,10 @@ class experienceController extends Controller
       public function index()
       {
           //
+          if(empty(Auth()->user()->role))
+        {
+         abort(404);
+        } else
           $experiences = Experience::get();
           return view('experience.index', compact('experiences'));
       }
@@ -24,6 +28,10 @@ class experienceController extends Controller
       public function create()
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('experience.create');
       }
   
@@ -52,6 +60,10 @@ class experienceController extends Controller
       public function edit(Experience $experience)
       {
           //
+          if(empty(Auth()->user()->role))
+          {
+           abort(404);
+          } else
           return view('experience.edit', compact('experience'));
       }
   
